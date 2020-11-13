@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1004878717943",
+    "firebase_url": "https://cps731final.firebaseio.com",
+    "project_id": "cps731final",
+    "storage_bucket": "cps731final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004878717943:android:1cea1d408b4d7d3f7804f2",
+        "android_client_info": {
+          "package_name": "com.example.CPS731"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1004878717943-p127uqikrfal8c1vv5u66vdtj4kphndi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_0-pQTh-VXu1JLd-uL8mDp9IXwnTrbkA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1004878717943-p127uqikrfal8c1vv5u66vdtj4kphndi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
