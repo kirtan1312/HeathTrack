@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Loginscreen</string>
+    <string name="app_name">HealthTrack3</string>
 
     <string-array name="sexes">
         <item>Male</item>
