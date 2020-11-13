@@ -37,7 +37,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         Calories data = CalorieList.get(position);
         database = RoomDB.getInstance(context);
-        holder.textView.setText(data.getValue());
+        holder.textView.setText(data.getValue()+"");
         holder.btEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

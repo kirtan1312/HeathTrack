@@ -18,7 +18,7 @@ public interface MainDAO {
     @Delete
     void reset(List<Calories> calories);
 
-    @Query("UPDATE `Calorie table` SET value = :svalue WHERE ID = :sID")
+    @Query("UPDATE `Calorie table` SET CalorieValue = :svalue WHERE ID = :sID")
     void update(int sID, int svalue);
 
     @Query("SELECT * FROM `Calorie table`")

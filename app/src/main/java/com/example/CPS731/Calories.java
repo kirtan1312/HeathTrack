@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity(tableName = "Calorie table")
 public class Calories implements Serializable {
     @PrimaryKey(autoGenerate = true)
-    private int ID;
+    protected int ID;
 
     @ColumnInfo(name = "CalorieValue")
     private int value;
