@@ -12,5 +12,8 @@
     <style name="RegistrationActivity" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColor">@color/textColor</item>
     </style>
-
+    <style name="CircularDeterminateProgressBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/circle</item>
+    </style>
 </resources>

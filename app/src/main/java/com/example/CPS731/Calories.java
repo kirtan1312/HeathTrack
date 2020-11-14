@@ -29,4 +29,15 @@ public class Calories implements Serializable {
     public void setValue(String value) {
         this.value = value;
     }
+
+
+    /*private int value2;
+    public int getValue2() {
+        return value2;
+    }
+
+    public void setValue2(int value2) {
+        this.value2 = value2;
+    }
+*/
 }

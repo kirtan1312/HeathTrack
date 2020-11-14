@@ -19,13 +19,17 @@ public class dblayout extends AppCompatActivity {
     LinearLayoutManager linearLayoutManager;
     RoomDB database;
     MainAdapter adapter;
-    private EditText DBeditText;
+    private EditText DBeditText,DBcal;
     private Button btAdd,btReset;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dblayout);
         DBeditText = findViewById(R.id.DBEditText);
+
+
+        DBcal = findViewById(R.id.DBcal);
+
         btAdd = findViewById(R.id.DBbtnAdd);
         btReset = findViewById(R.id.DBbtnReset);
         recyclerView = findViewById(R.id.DBrecyclerView);
@@ -48,8 +52,22 @@ public class dblayout extends AppCompatActivity {
                         database.mainDAO().insert(calories);
                         DBeditText.setText("");
                         caloriesList.clear();
+
+
                         caloriesList.addAll(database.mainDAO().getAll());
                         adapter.notifyDataSetChanged();
+                        /*
+
+                  int value2 = Integer.parseInt((DBcal.getText().toString().trim()));
+
+               //     calories.setValue2(value2);
+                  //  database.mainDAO().insert(calories);
+                  //  DBcal.setText("");
+                   // caloriesList.clear();
+
+                        caloriesList.addAll(database.mainDAO().getAll());
+                        adapter.notifyDataSetChanged();
+                         */
 
                 }
                 catch (Exception e){
