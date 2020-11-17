@@ -63,18 +63,43 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/DBgraph"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
 
-        android:layout_marginTop="10dp"
-        android:background="@drawable/button_shape"
-        android:fontFamily="sans-serif-light"
-        android:text="Graph"
-        android:textColor="@android:color/background_light"
-        android:textSize="24sp"
-        android:typeface="sans" />
+
+        <Button
+            android:id="@+id/DBgraph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_shape"
+            android:fontFamily="sans-serif-light"
+            android:text="Graph"
+            android:layout_marginRight="5dp"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            android:typeface="sans" />
+
+        <Button
+            android:id="@+id/DBCalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_shape"
+            android:fontFamily="sans-serif-light"
+            android:text="Calendar"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            android:typeface="sans" />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/DBrecyclerView"
