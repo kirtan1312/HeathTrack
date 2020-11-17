@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/bacround_gradient">
+    >
+
+    <EditText
+        android:id="@+id/DBEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Meal"
+        android:padding="12dp"
+        android:inputType="textPersonName"
+        android:text=""
+        android:backgroundTint="#ffffff"
+        android:textColor="@color/textColor"
+        android:textColorHint="@color/hintTextColor"/>
+
+    <EditText
+        android:id="@+id/DBcal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#ffffff"
+        android:hint="Enter Calories"
+        android:padding="12dp"
+        android:text=""
+        android:textColor="@color/textColor"
+        android:textColorHint="@color/hintTextColor" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/DBbtnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_shape"
+            android:fontFamily="sans-serif-light"
+            android:text="Add"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/DBbtnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_shape"
+            android:fontFamily="sans-serif-light"
+            android:text="Reset"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_shape"
+        android:fontFamily="sans-serif-light"
+        android:text="Graph"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        android:typeface="sans" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/DBrecyclerView"
+        android:layout_width="375dp"
+        android:layout_height="455dp"
+        android:paddingTop="40dp"
+        tools:listitem="@layout/db_list" />
+
+</LinearLayout>
