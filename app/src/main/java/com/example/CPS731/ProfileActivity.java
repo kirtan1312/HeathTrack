@@ -1,5 +1,6 @@
 package com.example.CPS731;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-
+import java.util.List;
 import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -30,9 +32,13 @@ public class ProfileActivity extends AppCompatActivity {
     private  FirebaseAuth mAuth;
     private final String TAG = this.getClass().getName().toUpperCase();
 
-
+    private String val1;
+    private  int val2;
     private static final String USERS = "users";
+    private List<Calories> CalorieList;
     Button clrbtn;
+     Calories data;
+   
     protected void onCreate(Bundle savedInstanceState) {
 
         mAuth = FirebaseAuth.getInstance();
@@ -61,6 +67,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
     }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_layout,menu);
 

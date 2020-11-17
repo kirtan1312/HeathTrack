@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import androidx.room.Room;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +24,7 @@ public class dblayout extends AppCompatActivity {
     RoomDB database;
     MainAdapter adapter;
     private EditText DBeditText,DBcal;
-    private Button btAdd,btReset;
+    private Button btAdd,btReset,btGraph;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ public class dblayout extends AppCompatActivity {
 
         btAdd = findViewById(R.id.DBbtnAdd);
         btReset = findViewById(R.id.DBbtnReset);
+        btGraph = findViewById(R.id.DBgraph);
         recyclerView = findViewById(R.id.DBrecyclerView);
         database = RoomDB.getInstance(this);
         caloriesList = database.mainDAO().getAll();
@@ -90,6 +93,13 @@ public class dblayout extends AppCompatActivity {
                 caloriesList.clear();
                 caloriesList.addAll(database.mainDAO().getAll());
                 adapter.notifyDataSetChanged();
+            }
+        });
+        btGraph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent profileIntent = new Intent(getApplicationContext(), graph.class);
+                startActivity(profileIntent);
             }
         });
     }

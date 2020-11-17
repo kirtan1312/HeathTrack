@@ -38,10 +38,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         Calories data = CalorieList.get(position);
         database = RoomDB.getInstance(context);
         if(data.getValue()!=null){
-            holder.textView.setText(data.getValue()+" pos: " + position);
+            holder.textView.setText(data.getValue()+ " Calories:");
         }
         else {
-            holder.textView.setText(Integer.toString(data.getValue2())+" pos: " + position);
+            holder.textView.setText(Integer.toString(data.getValue2()));
 
         }
         holder.btEdit.setOnClickListener(new View.OnClickListener() {
