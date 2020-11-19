@@ -1,6 +1,7 @@
 package com.example.CPS731;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,35 +28,51 @@ import java.util.List;
 import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
-    private TextView nameTxtView,totalCals;
+    private TextView nameTxtView;
+    private TextView  totalCals;
     private ProgressBar progress_bar;
     private  FirebaseAuth mAuth;
     private final String TAG = this.getClass().getName().toUpperCase();
 
-    private String val1;
+    private int val1;
     private  int val2;
+
     private static final String USERS = "users";
     private List<Calories> CalorieList;
     Button clrbtn;
      Calories data;
-   
+     Context context;
+
+   public ProfileActivity () { }
     protected void onCreate(Bundle savedInstanceState) {
 
         mAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
+        context= getApplicationContext();
         setContentView(R.layout.activity_profile);
         //receive data from login screen
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference userRef = rootRef.child(USERS);
         Log.v("USERID", userRef.getKey());
+        totalCals= findViewById(R.id.totalCals);
+
+        clrbtn = findViewById(R.id.Caloriecounter);
+
+        //RoomDB database;
+
+      //  database = RoomDB.getInstance(context);
 
         nameTxtView = findViewById(R.id.name_textview);
         progress_bar= findViewById(R.id.progress_bar);
-        totalCals= findViewById(R.id.totalCals);
-        clrbtn = findViewById(R.id.Caloriecounter);
-        int value =90;
+
+        val1 = getIntent().getExtras().getInt("Value");
+    //    Calories data = CalorieList.get(val1);
+
+       // MainDAO mViewModel = ;
+        //Log.d("LISTSIZEVM",  mViewModel.getDataCount());
+        int value = (val1/3000)*100;
         progress_bar.setProgress(value);
-        totalCals.setText( value + " Calories");
+        totalCals.setText("Calories: " +  val1);
 
 
         clrbtn.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +84,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
     }
+
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_layout,menu);

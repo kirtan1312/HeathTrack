@@ -2,6 +2,7 @@ package com.example.CPS731;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +19,10 @@ import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     private List<Calories> CalorieList;
+
     private Activity context;
     private RoomDB database;
+
     public MainAdapter(Activity context, List<Calories> CalorieList){
         this.context = context;
         this.CalorieList = CalorieList;
@@ -47,6 +50,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         holder.btEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Calories d = CalorieList.get(holder.getAdapterPosition());
                 final int sid = d.getId();
                 String value = d.getValue();

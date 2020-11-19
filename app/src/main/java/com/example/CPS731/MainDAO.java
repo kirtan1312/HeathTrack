@@ -25,4 +25,6 @@ public interface MainDAO {
     void update2(int sID, int ivalue);
     @Query("SELECT * FROM `Calorie table`")
     List<Calories> getAll();
+    //@Query("SELECT COUNT(*) FROM `Calorie table`")
+    //void getDataCount();
 }

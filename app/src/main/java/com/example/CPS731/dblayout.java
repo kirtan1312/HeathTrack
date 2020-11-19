@@ -6,16 +6,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import androidx.room.Room;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.common.internal.Asserts;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+
+import static java.util.Calendar.YEAR;
 
 public class dblayout extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -23,8 +30,13 @@ public class dblayout extends AppCompatActivity {
     LinearLayoutManager linearLayoutManager;
     RoomDB database;
     MainAdapter adapter;
+    private static int calorieTotal = 0;
+    graph gr;
+    ProfileActivity prof;
     private EditText DBeditText,DBcal;
-    private Button btAdd,btReset,btGraph;
+    private Button btAdd,btReset,btGraph,btCalendar;
+    private  int counter =0;
+    TextView totalCals;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +45,7 @@ public class dblayout extends AppCompatActivity {
 
 
         DBcal = findViewById(R.id.DBcal);
-
+        btCalendar= findViewById(R.id.DBCalendar);
         btAdd = findViewById(R.id.DBbtnAdd);
         btReset = findViewById(R.id.DBbtnReset);
         btGraph = findViewById(R.id.DBgraph);
@@ -44,6 +56,8 @@ public class dblayout extends AppCompatActivity {
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         adapter = new MainAdapter(dblayout.this, caloriesList);
+        gr = new graph();
+        prof = new ProfileActivity();
         recyclerView.setAdapter(adapter);
         btAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,12 +76,15 @@ public class dblayout extends AppCompatActivity {
 
 
                         caloriesList.addAll(database.mainDAO().getAll());
+
                         adapter.notifyDataSetChanged();
+                        Log.d("CREATION", "Add value1 ");
+
                     }
 
 
                     if(svalue2.matches("")==false) {
-                        System.out.println("2 " + svalue2);
+                        //System.out.println("2 " + svalue2);
 
                         int value2 = Integer.parseInt(svalue2);
                         Calories calories = new Calories();
@@ -78,6 +95,12 @@ public class dblayout extends AppCompatActivity {
 
                         caloriesList.addAll(database.mainDAO().getAll());
                         adapter.notifyDataSetChanged();
+
+                        Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
+                        calorieTotal += value2 ;
+                        Log.d("CREATION", "Add value2 " + calorieTotal);
+                        i.putExtra("Value",calorieTotal );
+                        startActivity(i);
                     }
 
                 }
@@ -102,5 +125,19 @@ public class dblayout extends AppCompatActivity {
                 startActivity(profileIntent);
             }
         });
+        btCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new DatePickerDialog(dblayout.this, d ,c.get(YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
     }
+    Calendar c = Calendar.getInstance();
+    DatePickerDialog.OnDateSetListener d= new DatePickerDialog.OnDateSetListener(){
+        public void onDateSet(DatePicker datePicker, int year, int monthofyear, int dayofmonth) {
+            c.set(Calendar.YEAR, year);
+            c.set(Calendar.MONTH, monthofyear);
+            c.set(Calendar.DAY_OF_MONTH,dayofmonth);
+        }
+    };
 }
