@@ -69,7 +69,7 @@ public class ProfileActivity extends AppCompatActivity {
     //    Calories data = CalorieList.get(val1);
 
        // MainDAO mViewModel = ;
-        //Log.d("LISTSIZEVM",  mViewModel.getDataCount());
+        Log.d("LISTSIZEVM", String.valueOf(val1));
         int value = (val1/3000)*100;
         progress_bar.setProgress(value);
         totalCals.setText("Calories: " +  val1);

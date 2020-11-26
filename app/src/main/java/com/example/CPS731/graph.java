@@ -32,34 +32,19 @@ public class graph extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
-
-
-//dataSet();
-
-
-    }
-    public void update(int i) {
-        Log.d("CREATION", "calling update graph ");
-        cal.add(i);
-       // System.out.println(i + " "  );
-       // System.out.println(cal.size() + " "  );
-        dataSet();
-    }
-    public void dataSet(){
-
         barChart = (BarChart)  findViewById(R.id.graph);
         ArrayList<BarEntry> barEntries = new ArrayList<>();
         Calories data;
-        float val=100;
+        float val=1;
         // float v;
         float counter =0;
-        for (int j=0; j<10; j++) {
+        for (int j=0; j<=5000; j=j+500) {
             //  Calories d = CalorieList.get(j);
             //val= d.getValue2();
             //   val = cal.get(j);
-            val= val+100;
+            val++;
 
-          //  System.out.println( "THE VALUE is: "+ j +" and cal "+ val);
+            //  System.out.println( "THE VALUE is: "+ j +" and cal "+ val);
             counter++;
 
             barEntries.add(new BarEntry(val,j));
@@ -78,6 +63,21 @@ public class graph extends AppCompatActivity {
         barChart.setTouchEnabled(true);
         barChart.setDragEnabled(true);
         barChart.setScaleEnabled(true);
+
+//dataSet();
+
+
+    }
+    public void update(int i) {
+        Log.d("CREATION", "calling update graph ");
+        cal.add(i);
+       // System.out.println(i + " "  );
+       // System.out.println(cal.size() + " "  );
+        dataSet();
+    }
+    public void dataSet(){
+
+
 
 
     }

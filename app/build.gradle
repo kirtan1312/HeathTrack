@@ -8,7 +8,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -35,13 +35,19 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$room_version"
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'androidx.room:room-compiler:2.0.0'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test:rules:1.1.1'
     //firebase auth
     implementation 'com.google.firebase:firebase-core:16.0.5'
     implementation 'com.google.firebase:firebase-auth:16.0.5'
     //firebase database
     implementation 'com.google.firebase:firebase-database:16.0.4'
+
+
+
 }
 apply plugin: 'com.google.gms.google-services'
