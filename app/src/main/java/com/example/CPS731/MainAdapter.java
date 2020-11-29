@@ -22,6 +22,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     private Activity context;
     private RoomDB database;
+    public MainAdapter() {};
 
     public MainAdapter(Activity context, List<Calories> CalorieList){
         this.context = context;
@@ -92,6 +93,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         });
     }
 
+    public int upd (int val) {
+        return val ;
+    }
     @Override
     public int getItemCount() {
         return CalorieList.size();

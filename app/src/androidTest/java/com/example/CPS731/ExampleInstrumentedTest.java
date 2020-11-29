@@ -48,7 +48,6 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.password_edittext)).perform(typeText("RyeUni"));
         onView(withId(R.id.emailogin_edittext)).check(matches(withText("kirtanpatel604@gmail.com")));
         onView(withId(R.id.button)).perform(click());
-
     }
 
     @Test

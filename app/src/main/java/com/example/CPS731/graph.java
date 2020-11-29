@@ -68,17 +68,5 @@ public class graph extends AppCompatActivity {
 
 
     }
-    public void update(int i) {
-        Log.d("CREATION", "calling update graph ");
-        cal.add(i);
-       // System.out.println(i + " "  );
-       // System.out.println(cal.size() + " "  );
-        dataSet();
-    }
-    public void dataSet(){
 
-
-
-
-    }
 }

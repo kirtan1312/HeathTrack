@@ -97,7 +97,8 @@ public class dblayout extends AppCompatActivity {
                         adapter.notifyDataSetChanged();
 
                         Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
-                        calorieTotal += value2 ;
+                        calorieTotal = sumTotal(calorieTotal, value2);
+
                         Log.d("CREATION", "Add value2 " + calorieTotal);
                         i.putExtra("Value",calorieTotal );
                         startActivity(i);
@@ -108,7 +109,9 @@ public class dblayout extends AppCompatActivity {
                     System.out.println(e);
                 }
             }
-        });
+
+
+    });
         btReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,6 +128,9 @@ public class dblayout extends AppCompatActivity {
                 startActivity(profileIntent);
             }
         });
+
+        // Calendar ----------------------------- -------------------------------------------
+        // Able to change it so that it displays data from database based on day selected
         btCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -132,6 +138,12 @@ public class dblayout extends AppCompatActivity {
             }
         });
     }
+
+    public int sumTotal(int calorieTotal, int value2) {
+        calorieTotal += value2;
+        return calorieTotal;
+    }
+//Calendar dialog --------------------------------------------------------------------------------------
     Calendar c = Calendar.getInstance();
     DatePickerDialog.OnDateSetListener d= new DatePickerDialog.OnDateSetListener(){
         public void onDateSet(DatePicker datePicker, int year, int monthofyear, int dayofmonth) {
